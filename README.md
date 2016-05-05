@@ -4,4 +4,3 @@
 書籍ではMatlab 2012を想定しているので，`Matlab and Simulink Library For the Arduino IO Package`というオプション・パッケージを使用していた．
 
 当方の環境では，Matlab 2016a を使用しており，`Matlab and Simulink Support Package for Arduino Hardware`という専用パッケージが提供されているので，こちらを想定したコードに独自に移行している．
->>>>>>> 2537f1ca92e23f166b06f187ff47f8298f287024
