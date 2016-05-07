@@ -9,15 +9,16 @@ ts      = 1/50;
 u_ini   = 1.5; % initial input
 r_const = 1.3; % offset voltage
 p_const = 0.5; % step input voltage
-s_time  = 10;  % step time
+s_time  = 9.5;  % step time もともと10だったが，オフセットがずれるため微調整
 w_time  = 4;   % wait time
 
 %% Open simulink model
 open_system('velo_id_tc_sl');
-open_system('velo_id_tc_sl/Output');
+open_system('velo_id_tc_sl/Out1');
 
 %% Start experiment
-sim('velo_id_tc_sl');
+%sim('velo_id_tc_sl');
+set_param('velo_id_tc_sl', 'SimulationCommand', 'start')
 
 %% Parameter identification
 y = yout.signals.values;

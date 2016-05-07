@@ -1,5 +1,5 @@
 Model {
-  Name			  "velo_id_gain_sl"
+  Name			  "velo_id_tc_sl"
   Version		  8.7
   MdlSubVersion		  1
   SavedCharacterEncoding  "Shift_JIS"
@@ -7,7 +7,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.74"
+    ComputedModelVersion    "1.84"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -32,7 +32,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [84.0, 220.0, 1071.0, 620.0]
+      Location		      [87.0, 264.0, 1071.0, 620.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -68,9 +68,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "morita"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sat May 07 21:53:58 2016"
-  RTWModifiedTimeStamp	  384558832
-  ModelVersionFormat	  "1.%<AutoIncrement:74>"
+  LastModifiedDate	  "Sat May 07 23:41:02 2016"
+  RTWModifiedTimeStamp	  384565258
+  ModelVersionFormat	  "1.%<AutoIncrement:84>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -171,7 +171,7 @@ Model {
 	  $ObjectID		  8
 	  Version		  "1.16.2"
 	  StartTime		  "0.0"
-	  StopTime		  "10.0"
+	  StopTime		  "20.0"
 	  AbsTol		  "auto"
 	  FixedStep		  "auto"
 	  InitialStep		  "auto"
@@ -879,7 +879,7 @@ Model {
 	PropName		"Components"
       }
       Name		      "Configuration"
-      CurrentDlgPage	      "Diagnostics"
+      CurrentDlgPage	      "Hardware Implementation"
       ConfigPrmDlgPosition     [ 248, 120, 1207, 888 ] 
     }
     PropName		    "ConfigurationSets"
@@ -1090,8 +1090,8 @@ Model {
     }
   }
   System {
-    Name		    "velo_id_gain_sl"
-    Location		    [84, 220, 1155, 840]
+    Name		    "velo_id_tc_sl"
+    Location		    [87, 264, 1158, 884]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -1105,15 +1105,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "29"
-    Block {
-      BlockType		      Constant
-      Name		      "Constant"
-      SID		      "18"
-      Position		      [70, 70, 100, 100]
-      ZOrder		      25
-      Value		      "u_ref"
-    }
+    SIDHighWatermark	    "31"
     Block {
       BlockType		      Constant
       Name		      "Constant1"
@@ -1259,20 +1251,20 @@ Model {
       ScopeSpecificationString "Simulink.scopes.TimeScopeBlockCfg('CurrentConfiguration', extmgr.ConfigurationSet(extm"
       "gr.Configuration('Core','General UI',true),extmgr.Configuration('Core','Source UI',true),extmgr.Configuration('S"
       "ources','WiredSimulink',true,'DataLoggingDecimation','1'),extmgr.Configuration('Visuals','Time Domain',true,'Ser"
-      "ializedDisplays',{struct('MinYLimReal','-0.12463','MaxYLimReal','1.1217','YLabelReal','','MinYLimMag','0.00000',"
-      "'MaxYLimMag','1.1217','LegendVisibility','Off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0"
+      "ializedDisplays',{struct('MinYLimReal','-0.16496','MaxYLimReal','1.4846','YLabelReal','','MinYLimMag','0.00000',"
+      "'MaxYLimMag','1.4846','LegendVisibility','Off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0"
       "],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0"
       ".0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0"
       ".0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.6509803921"
       "56863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',1,'LineName"
-      "s',{{'yout'}},'ShowContent',true,'Placement',1)},'DisplayPropertyDefaults',struct('MinYLimReal','-0.12463','MaxY"
-      "LimReal','1.1217','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','1.1217','LegendVisibility','Off','XGrid',"
+      "s',{{'yout'}},'ShowContent',true,'Placement',1)},'DisplayPropertyDefaults',struct('MinYLimReal','-0.16496','MaxY"
+      "LimReal','1.4846','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','1.4846','LegendVisibility','Off','XGrid',"
       "true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 "
       "0.686274509803922],'ColorOrder',[0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;1 1"
       " 0.0666666666666667;0.717647058823529 0.274509803921569 1;0.392156862745098 0.831372549019608 0.0745098039215686"
       ";0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863])),extmgr.Configuration('Tools','Plot Navigation'"
-      ",true),extmgr.Configuration('Tools','Measurements',true,'Version','2016a')),'Version','2016a','Position',[1239 2"
-      "69 560 420],'VisibleAtModelOpen','on')"
+      ",true),extmgr.Configuration('Tools','Measurements',true,'Version','2016a')),'Version','2016a','Position',[1219 3"
+      "34 560 420],'VisibleAtModelOpen','on')"
     }
     Block {
       BlockType		      Step
@@ -1280,15 +1272,26 @@ Model {
       SID		      "24"
       Position		      [70, 220, 100, 250]
       ZOrder		      31
-      SampleTime	      "0"
+      SampleTime	      "ts"
+    }
+    Block {
+      BlockType		      Step
+      Name		      "Step1"
+      SID		      "30"
+      Position		      [70, 70, 100, 100]
+      ZOrder		      35
+      Time		      "10"
+      Before		      "r_const"
+      After		      "r_const+p_const"
+      SampleTime	      "ts"
     }
     Block {
       BlockType		      Switch
-      Name		      "Switch"
-      SID		      "25"
-      Position		      [200, 80, 250, 120]
-      ZOrder		      32
-      Criteria		      "u2 > Threshold"
+      Name		      "Switch1"
+      SID		      "31"
+      Position		      [195, 80, 245, 120]
+      ZOrder		      36
+      Threshold		      "0.0"
       InputSameDT	      off
       SaturateOnIntegerOverflow	off
     }
@@ -1304,34 +1307,34 @@ Model {
       SaveFormat	      "Structure With Time"
       Save2DSignal	      "3-D array (concatenate along third dimension)"
       FixptAsFi		      on
-      SampleTime	      "-1"
+      SampleTime	      "ts"
     }
     Line {
-      ZOrder		      66
-      SrcBlock		      "Constant"
+      ZOrder		      99
+      SrcBlock		      "Step1"
       SrcPort		      1
-      DstBlock		      "Switch"
+      DstBlock		      "Switch1"
       DstPort		      1
     }
     Line {
-      ZOrder		      71
+      ZOrder		      101
       SrcBlock		      "Constant1"
       SrcPort		      1
       Points		      [28, 0; 0, -45]
-      DstBlock		      "Switch"
+      DstBlock		      "Switch1"
       DstPort		      3
     }
     Line {
-      ZOrder		      72
+      ZOrder		      100
       SrcBlock		      "Step"
       SrcPort		      1
       Points		      [62, 0; 0, -135]
-      DstBlock		      "Switch"
+      DstBlock		      "Switch1"
       DstPort		      2
     }
     Line {
-      ZOrder		      69
-      SrcBlock		      "Switch"
+      ZOrder		      102
+      SrcBlock		      "Switch1"
       SrcPort		      1
       DstBlock		      "Moter"
       DstPort		      1

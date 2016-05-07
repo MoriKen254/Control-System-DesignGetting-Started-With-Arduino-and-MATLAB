@@ -14,14 +14,12 @@ u_ref_list = 1:0.125:2.5;
 %% Open simulink model
 open_system('velo_id_gain_sl');
 open_system('velo_id_gain_sl/Out1');
-%open_system('velo_id_gain_sl/To Workspace');
 
 %% Start experiment
 y_mean_list= [];
 for i=1:length(u_ref_list)
     u_ref = u_ref_list(i);
 %    sim('velo_id_gain_sl');
-%    sim('velo_id_gain_sl', 'SimulationMode', 'external');
     set_param('velo_id_gain_sl', 'SimulationCommand', 'start')
 %     while 1
 %         status = get_param('velo_id_gain_sl', 'SimulationStatus');
