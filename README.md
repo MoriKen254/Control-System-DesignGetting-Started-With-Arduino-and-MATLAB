@@ -26,3 +26,9 @@
 ### Scope のグラフを縦二段表示にしたい
 1. Scopeブロックをダブルクリックする．
 2. ツールバーの歯車マークをクリック→レイアウトで縦二段を選択する．
+
+### Run On Target Hardwareからsimulinkモデルを実行しても，結果が`yout`に出力されない
+Externalモードでは`sim('velo_id_gain_sl');`コマンドが使えなく，`set_param('velo_id_gain_sl', 'SimulationCommand', 'start');`を使うしか無い．`yout`の自動出力は`sim`でしか有効にならないので，別の手段が必要．以下の手順でワークスペースに結果を保存できる．
+
+1. Simulink ライブラリブラウザーから`simout(To Workspace)`を貼り付け，出力部を接続．
+2. 当該ブロックをダブルクリックし，保存形式を`時間付き構造体`とする．ここが分からず相当ハマった...
