@@ -1,5 +1,5 @@
 Model {
-  Name			  "vel_test2"
+  Name			  "velo_id_gain_sl"
   Version		  8.7
   MdlSubVersion		  1
   SavedCharacterEncoding  "Shift_JIS"
@@ -7,7 +7,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.12"
+    ComputedModelVersion    "1.74"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -32,7 +32,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [589.0, 238.0, 1134.0, 601.0]
+      Location		      [84.0, 220.0, 1071.0, 620.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -56,21 +56,21 @@ Model {
 	IsActive		[1]
 	ViewObjType		"SimulinkTopLevel"
 	LoadSaveID		"0"
-	Extents			[1084.0, 427.0]
+	Extents			[1021.0, 446.0]
 	ZoomFactor		[1.0]
-	Offset			[19.0, 14.0]
+	Offset			[0.0, -4.4749997556209564]
       }
     }
   }
-  Created		  "Sat May 07 16:32:24 2016"
+  Created		  "Sat May 07 16:41:56 2016"
   Creator		  "morita"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "morita"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sat May 07 19:50:49 2016"
-  RTWModifiedTimeStamp	  384551447
-  ModelVersionFormat	  "1.%<AutoIncrement:12>"
+  LastModifiedDate	  "Sat May 07 21:53:58 2016"
+  RTWModifiedTimeStamp	  384558832
+  ModelVersionFormat	  "1.%<AutoIncrement:74>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -120,12 +120,12 @@ Model {
     $PropName		    "DataLoggingOverride"
     $ObjectID		    6
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
-    model_		    "vel_test2"
+    model_		    "velo_p"
     overrideMode_	    [0.0]
     Array {
       Type		      "Cell"
       Dimension		      1
-      Cell		      "vel_test2"
+      Cell		      "velo_p"
       PropName		      "logAsSpecifiedByModels_"
     }
     Array {
@@ -217,7 +217,7 @@ Model {
 	  LoadInitialState	  off
 	  SaveFinalState	  off
 	  SaveCompleteFinalSimState off
-	  SaveFormat		  "Dataset"
+	  SaveFormat		  "Array"
 	  SignalLoggingSaveFormat "Dataset"
 	  SaveOutput		  on
 	  SaveState		  off
@@ -879,8 +879,8 @@ Model {
 	PropName		"Components"
       }
       Name		      "Configuration"
-      CurrentDlgPage	      "Hardware Implementation"
-      ConfigPrmDlgPosition     [ 71, 71, 1030, 839 ] 
+      CurrentDlgPage	      "Diagnostics"
+      ConfigPrmDlgPosition     [ 248, 120, 1207, 888 ] 
     }
     PropName		    "ConfigurationSets"
   }
@@ -951,6 +951,19 @@ Model {
   }
   BlockParameterDefaults {
     Block {
+      BlockType		      Constant
+      Value		      "1"
+      VectorParams1D	      on
+      SamplingMode	      "Sample based"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Inherit from 'Constant value'"
+      LockScale		      off
+      SampleTime	      "inf"
+      FramePeriod	      "inf"
+      PreserveConstantTs      off
+    }
+    Block {
       BlockType		      Gain
       Gain		      "1"
       Multiplication	      "Element-wise(K.*u)"
@@ -966,12 +979,41 @@ Model {
       SampleTime	      "-1"
     }
     Block {
-      BlockType		      Mux
-      Inputs		      "4"
-      DisplayOption	      "none"
-      UseBusObject	      off
-      BusObject		      "BusObject"
-      NonVirtualBus	      off
+      BlockType		      Inport
+      Port		      "1"
+      OutputFunctionCall      off
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: auto"
+      LockScale		      off
+      BusOutputAsStruct	      off
+      Unit		      "inherit"
+      PortDimensions	      "-1"
+      VarSizeSig	      "Inherit"
+      SampleTime	      "-1"
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      LatchByDelayingOutsideSignal off
+      LatchInputForFeedbackSignals off
+      Interpolate	      on
+    }
+    Block {
+      BlockType		      Outport
+      Port		      "1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: auto"
+      LockScale		      off
+      BusOutputAsStruct	      off
+      Unit		      "inherit"
+      PortDimensions	      "-1"
+      VarSizeSig	      "Inherit"
+      SampleTime	      "-1"
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      SourceOfInitialOutputValue "Dialog"
+      OutputWhenDisabled      "held"
+      InitialOutput	      "[]"
     }
     Block {
       BlockType		      Scope
@@ -979,10 +1021,77 @@ Model {
       NumInputPorts	      "1"
       Floating		      off
     }
+    Block {
+      BlockType		      Step
+      Time		      "1"
+      Before		      "0"
+      After		      "1"
+      SampleTime	      "-1"
+      VectorParams1D	      on
+      ZeroCross		      on
+    }
+    Block {
+      BlockType		      SubSystem
+      ShowPortLabels	      "FromPortIcon"
+      Permissions	      "ReadWrite"
+      PermitHierarchicalResolution "All"
+      TreatAsAtomicUnit	      off
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      CheckFcnCallInpInsideContextMsg off
+      SystemSampleTime	      "-1"
+      RTWSystemCode	      "Auto"
+      RTWFcnNameOpts	      "Auto"
+      RTWFileNameOpts	      "Auto"
+      FunctionInterfaceSpec   "void_void"
+      FunctionWithSeparateData off
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+      SimViewingDevice	      off
+      DataTypeOverride	      "UseLocalSettings"
+      DataTypeOverrideAppliesTo	"AllNumericTypes"
+      MinMaxOverflowLogging   "UseLocalSettings"
+      Opaque		      off
+      MaskHideContents	      off
+      SFBlockType	      "NONE"
+      GeneratePreprocessorConditionals off
+      TreatAsGroupedWhenPropagatingVariantConditions on
+      ContentPreviewEnabled   off
+      IsWebBlock	      off
+    }
+    Block {
+      BlockType		      Switch
+      Criteria		      "u2 >= Threshold"
+      Threshold		      "0"
+      InputSameDT	      on
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+      ZeroCross		      on
+      SampleTime	      "-1"
+      AllowDiffInputSizes     off
+    }
+    Block {
+      BlockType		      ToWorkspace
+      VariableName	      "simulink_output"
+      MaxDataPoints	      "1000"
+      Decimation	      "1"
+      SaveFormat	      "Array"
+      Save2DSignal	      "Inherit from input (this choice will be removed - see release notes)"
+      FixptAsFi		      off
+      NumInputs		      "1"
+      SampleTime	      "0"
+    }
   }
   System {
-    Name		    "vel_test2"
-    Location		    [589, 238, 1723, 839]
+    Name		    "velo_id_gain_sl"
+    Location		    [84, 220, 1155, 840]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -996,170 +1105,256 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "8"
+    SIDHighWatermark	    "29"
     Block {
-      BlockType		      Reference
-      Name		      "Analog Input"
-      SID		      "1"
-      Ports		      [0, 1]
-      Position		      [65, 80, 185, 140]
-      ZOrder		      4
-      LibraryVersion	      "1.244"
-      SourceBlock	      "arduinolib/Analog Input"
-      SourceType	      "Arduino Analog Input"
-      pinNumber		      "1"
-      sampleTime	      "ts"
-      blockPlatform	      "arduino"
+      BlockType		      Constant
+      Name		      "Constant"
+      SID		      "18"
+      Position		      [70, 70, 100, 100]
+      ZOrder		      25
+      Value		      "u_ref"
     }
     Block {
-      BlockType		      Reference
-      Name		      "Analog Input1"
-      SID		      "6"
-      Ports		      [0, 1]
-      Position		      [520, 200, 640, 260]
-      ZOrder		      9
-      LibraryVersion	      "1.244"
-      SourceBlock	      "arduinolib/Analog Input"
-      SourceType	      "Arduino Analog Input"
-      pinNumber		      "0"
-      sampleTime	      "ts"
-      blockPlatform	      "arduino"
+      BlockType		      Constant
+      Name		      "Constant1"
+      SID		      "23"
+      Position		      [70, 145, 100, 175]
+      ZOrder		      30
+      Value		      "u_ini"
     }
     Block {
-      BlockType		      Gain
-      Name		      "Gain"
-      SID		      "2"
-      Position		      [240, 95, 320, 125]
-      ZOrder		      5
-      Gain		      "5/1023"
-      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
-      OutDataTypeStr	      "Inherit: Inherit via internal rule"
-      SaturateOnIntegerOverflow	off
-    }
-    Block {
-      BlockType		      Gain
-      Name		      "Gain1"
-      SID		      "4"
-      Position		      [380, 95, 460, 125]
-      ZOrder		      7
-      Gain		      "255/5"
-      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
-      OutDataTypeStr	      "Inherit: Inherit via internal rule"
-      SaturateOnIntegerOverflow	off
-    }
-    Block {
-      BlockType		      Gain
-      Name		      "Gain2"
-      SID		      "7"
-      Position		      [675, 215, 755, 245]
-      ZOrder		      10
-      Gain		      "5/1023"
-      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
-      OutDataTypeStr	      "Inherit: Inherit via internal rule"
-      SaturateOnIntegerOverflow	off
-    }
-    Block {
-      BlockType		      Mux
-      Name		      "Mux"
-      SID		      "3"
-      Ports		      [2, 1]
-      Position		      [785, 101, 790, 139]
-      ZOrder		      6
-      ShowName		      off
-      Inputs		      "2"
-      DisplayOption	      "bar"
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "PWM"
-      SID		      "5"
-      Ports		      [1]
-      Position		      [510, 80, 630, 140]
-      ZOrder		      8
-      LibraryVersion	      "1.244"
-      SourceBlock	      "arduinolib/PWM"
-      SourceType	      "Arduino PWM"
-      ContentPreviewEnabled   off
-      pinNumber		      "3"
-      blockPlatform	      "arduino"
+      BlockType		      SubSystem
+      Name		      "Moter"
+      SID		      "14"
+      Ports		      [1, 1]
+      Position		      [315, 72, 380, 128]
+      ZOrder		      -25
+      RequestExecContextInheritance off
+      Variant		      off
+      Port {
+	PortNumber		1
+	Name			"yout"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
+      System {
+	Name			"Moter"
+	Location		[299, 303, 1370, 923]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"A4"
+	PaperUnits		"centimeters"
+	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Inport
+	  Name			  "In1"
+	  SID			  "15"
+	  Position		  [20, 43, 50, 57]
+	  ZOrder		  23
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Analog Input1"
+	  SID			  "12"
+	  Ports			  [0, 1]
+	  Position		  [360, 20, 480, 80]
+	  ZOrder		  21
+	  LibraryVersion	  "1.244"
+	  SourceBlock		  "arduinolib/Analog Input"
+	  SourceType		  "Arduino Analog Input"
+	  pinNumber		  "0"
+	  sampleTime		  "ts"
+	  blockPlatform		  "arduino"
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Gain2"
+	  SID			  "10"
+	  Position		  [100, 35, 180, 65]
+	  ZOrder		  19
+	  Gain			  "255/5"
+	  ParamDataTypeStr	  "double"
+	  OutDataTypeStr	  "double"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Gain3"
+	  SID			  "13"
+	  Position		  [515, 35, 595, 65]
+	  ZOrder		  22
+	  Gain			  "5/1023"
+	  ParamDataTypeStr	  "double"
+	  OutDataTypeStr	  "double"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "PWM"
+	  SID			  "11"
+	  Ports			  [1]
+	  Position		  [220, 20, 340, 80]
+	  ZOrder		  20
+	  LibraryVersion	  "1.244"
+	  SourceBlock		  "arduinolib/PWM"
+	  SourceType		  "Arduino PWM"
+	  ContentPreviewEnabled	  off
+	  pinNumber		  "3"
+	  blockPlatform		  "arduino"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Out1"
+	  SID			  "16"
+	  Position		  [655, 43, 685, 57]
+	  ZOrder		  24
+	  IconDisplay		  "Port number"
+	  OutDataTypeStr	  "double"
+	}
+	Line {
+	  ZOrder		  11
+	  SrcBlock		  "Analog Input1"
+	  SrcPort		  1
+	  DstBlock		  "Gain3"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  15
+	  SrcBlock		  "Gain3"
+	  SrcPort		  1
+	  DstBlock		  "Out1"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  10
+	  SrcBlock		  "Gain2"
+	  SrcPort		  1
+	  DstBlock		  "PWM"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  14
+	  SrcBlock		  "In1"
+	  SrcPort		  1
+	  DstBlock		  "Gain2"
+	  DstPort		  1
+	}
+      }
     }
     Block {
       BlockType		      Scope
-      Name		      "Scope"
-      SID		      "8"
+      Name		      "Out1"
+      SID		      "27"
       Ports		      [1]
-      Position		      [840, 104, 870, 136]
-      ZOrder		      11
+      Position		      [460, 179, 490, 211]
+      ZOrder		      34
       ScopeSpecificationString "Simulink.scopes.TimeScopeBlockCfg('CurrentConfiguration', extmgr.ConfigurationSet(extm"
       "gr.Configuration('Core','General UI',true),extmgr.Configuration('Core','Source UI',true),extmgr.Configuration('S"
-      "ources','WiredSimulink',true),extmgr.Configuration('Visuals','Time Domain',true,'SerializedDisplays',{struct('Mi"
-      "nYLimReal','-0.19184','MaxYLimReal','1.72654','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','1.72654','Leg"
-      "endVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.68627"
-      "4509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529"
-      "411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647"
-      "058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLa"
-      "bel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',2,'LineNames',{{'Gain','Gain2'}},'Sho"
-      "wContent',true,'Placement',1)},'DisplayPropertyDefaults',struct('MinYLimReal','-0.19184','MaxYLimReal','1.72654'"
-      ",'YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','1.72654','LegendVisibility','off','XGrid',true,'YGrid',tru"
-      "e,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.68627450980392"
-      "2],'ColorOrder',[0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;1 1 0.0666666666666"
-      "667;0.717647058823529 0.274509803921569 1;0.392156862745098 0.831372549019608 0.0745098039215686;0.0588235294117"
-      "647 1 1;1 0.0745098039215686 0.650980392156863])),extmgr.Configuration('Tools','Plot Navigation',true),extmgr.Co"
-      "nfiguration('Tools','Measurements',true,'Version','2016a')),'Version','2016a','Position',[104 266 560 420],'Visi"
-      "bleAtModelOpen','on')"
+      "ources','WiredSimulink',true,'DataLoggingDecimation','1'),extmgr.Configuration('Visuals','Time Domain',true,'Ser"
+      "ializedDisplays',{struct('MinYLimReal','-0.12463','MaxYLimReal','1.1217','YLabelReal','','MinYLimMag','0.00000',"
+      "'MaxYLimMag','1.1217','LegendVisibility','Off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0"
+      "],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0"
+      ".0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0"
+      ".0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.6509803921"
+      "56863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',1,'LineName"
+      "s',{{'yout'}},'ShowContent',true,'Placement',1)},'DisplayPropertyDefaults',struct('MinYLimReal','-0.12463','MaxY"
+      "LimReal','1.1217','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','1.1217','LegendVisibility','Off','XGrid',"
+      "true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 "
+      "0.686274509803922],'ColorOrder',[0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;1 1"
+      " 0.0666666666666667;0.717647058823529 0.274509803921569 1;0.392156862745098 0.831372549019608 0.0745098039215686"
+      ";0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863])),extmgr.Configuration('Tools','Plot Navigation'"
+      ",true),extmgr.Configuration('Tools','Measurements',true,'Version','2016a')),'Version','2016a','Position',[1239 2"
+      "69 560 420],'VisibleAtModelOpen','on')"
+    }
+    Block {
+      BlockType		      Step
+      Name		      "Step"
+      SID		      "24"
+      Position		      [70, 220, 100, 250]
+      ZOrder		      31
+      SampleTime	      "0"
+    }
+    Block {
+      BlockType		      Switch
+      Name		      "Switch"
+      SID		      "25"
+      Position		      [200, 80, 250, 120]
+      ZOrder		      32
+      Criteria		      "u2 > Threshold"
+      InputSameDT	      off
+      SaturateOnIntegerOverflow	off
+    }
+    Block {
+      BlockType		      ToWorkspace
+      Name		      "To Workspace"
+      SID		      "26"
+      Ports		      [1]
+      Position		      [460, 30, 520, 60]
+      ZOrder		      33
+      VariableName	      "yout"
+      MaxDataPoints	      "inf"
+      SaveFormat	      "Structure With Time"
+      Save2DSignal	      "3-D array (concatenate along third dimension)"
+      FixptAsFi		      on
+      SampleTime	      "-1"
     }
     Line {
-      ZOrder		      1
-      SrcBlock		      "Analog Input"
+      ZOrder		      66
+      SrcBlock		      "Constant"
       SrcPort		      1
-      DstBlock		      "Gain"
+      DstBlock		      "Switch"
       DstPort		      1
     }
     Line {
-      ZOrder		      2
-      SrcBlock		      "Gain"
+      ZOrder		      71
+      SrcBlock		      "Constant1"
       SrcPort		      1
-      Points		      [18, 0]
-      Branch {
-	ZOrder			5
-	Points			[0, -44; 399, 0; 0, 44]
-	DstBlock		"Mux"
-	DstPort			1
-      }
-      Branch {
-	ZOrder			4
-	DstBlock		"Gain1"
-	DstPort			1
-      }
+      Points		      [28, 0; 0, -45]
+      DstBlock		      "Switch"
+      DstPort		      3
     }
     Line {
-      ZOrder		      3
-      SrcBlock		      "Gain1"
+      ZOrder		      72
+      SrcBlock		      "Step"
       SrcPort		      1
-      DstBlock		      "PWM"
-      DstPort		      1
-    }
-    Line {
-      ZOrder		      6
-      SrcBlock		      "Analog Input1"
-      SrcPort		      1
-      DstBlock		      "Gain2"
-      DstPort		      1
-    }
-    Line {
-      ZOrder		      7
-      SrcBlock		      "Gain2"
-      SrcPort		      1
-      Points		      [9, 0; 0, -100]
-      DstBlock		      "Mux"
+      Points		      [62, 0; 0, -135]
+      DstBlock		      "Switch"
       DstPort		      2
     }
     Line {
-      ZOrder		      8
-      SrcBlock		      "Mux"
+      ZOrder		      69
+      SrcBlock		      "Switch"
       SrcPort		      1
-      DstBlock		      "Scope"
+      DstBlock		      "Moter"
       DstPort		      1
+    }
+    Line {
+      Name		      "yout"
+      ZOrder		      92
+      Labels		      [0, 0]
+      SrcBlock		      "Moter"
+      SrcPort		      1
+      Points		      [24, 0]
+      Branch {
+	ZOrder			96
+	Points			[0, 95]
+	DstBlock		"Out1"
+	DstPort			1
+      }
+      Branch {
+	ZOrder			95
+	Points			[0, -55]
+	DstBlock		"To Workspace"
+	DstPort			1
+      }
     }
   }
 }
