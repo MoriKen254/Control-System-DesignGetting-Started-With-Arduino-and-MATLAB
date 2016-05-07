@@ -32,3 +32,7 @@ Externalモードでは`sim('velo_id_gain_sl');`コマンドが使えなく，`s
 
 1. Simulink ライブラリブラウザーから`simout(To Workspace)`を貼り付け，出力部を接続．
 2. 当該ブロックをダブルクリックし，保存形式を`時間付き構造体`とする．ここが分からず相当ハマった...
+
+- 参考
+ - [Parameter Tuning and Signal Logging with Serial External Mode](http://jp.mathworks.com/help//supportpkg/texasinstrumentsc2000/examples/parameter-tuning-and-signal-logging-with-serial-external-mode.html)
+ - [Tune Parameters and Monitor Data in Model Running on Target Hardware](http://jp.mathworks.com/help/supportpkg/legomindstormsev3/ug/tune-parameters-and-monitor-data-in-a-model-running-on-target-hardware.html)
