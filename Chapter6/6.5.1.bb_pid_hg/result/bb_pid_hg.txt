@@ -1,0 +1,9 @@
+>>> PID parameters for HG Servo <<<
+Kp  = 0.130300
+Ki  = 0.000000
+Kd  = 0.004352
+>>> PID parameters for Ball and Beam <<<
+kp  = 0.005357
+ki  = 0.001913
+kd  = 0.003912
+kff = 0.003827
