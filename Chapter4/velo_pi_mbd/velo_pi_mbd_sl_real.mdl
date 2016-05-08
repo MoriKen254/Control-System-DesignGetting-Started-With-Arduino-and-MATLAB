@@ -1,5 +1,5 @@
 Model {
-  Name			  "velo_pi_mbd_sl_2"
+  Name			  "velo_pi_mbd_sl_real"
   Version		  8.7
   MdlSubVersion		  1
   SavedCharacterEncoding  "Shift_JIS"
@@ -7,7 +7,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.41"
+    ComputedModelVersion    "1.42"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -32,7 +32,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [986.0, 111.0, 883.0, 690.0]
+      Location		      [1058.0, 77.0, 883.0, 690.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -68,9 +68,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "morita"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sun May 08 13:31:02 2016"
-  RTWModifiedTimeStamp	  384615061
-  ModelVersionFormat	  "1.%<AutoIncrement:41>"
+  LastModifiedDate	  "Sun May 08 13:47:01 2016"
+  RTWModifiedTimeStamp	  384615762
+  ModelVersionFormat	  "1.%<AutoIncrement:42>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -743,7 +743,7 @@ Model {
 	    Type		    "Struct"
 	    Dimension		    1
 	    MATStruct {
-	      UseCoderTarget	      [1.0]
+	      UseCoderTarget	      [1]
 	      TargetHardware	      "Arduino Mega 2560"
 	      Array {
 		Type			"Struct"
@@ -755,7 +755,7 @@ Model {
 		    MATStruct {
 		    Baudrate		    "115200"
 		    COMPort		    "codertarget.arduinobase.internal.getExternalModeMexArgs('Serial')"
-		    Verbose		    [0.0]
+		    Verbose		    [0]
 		    }
 		    PropName		    "Serial"
 		  }
@@ -765,7 +765,7 @@ Model {
 		    MATStruct {
 		    IPAddress		    "codertarget.arduinobase.internal.getExternalModeMexArgs('Ethernet')"
 		    Port		    "17725"
-		    Verbose		    [0.0]
+		    Verbose		    [0]
 		    }
 		    PropName		    "TCPIP"
 		  }
@@ -775,7 +775,7 @@ Model {
 		    MATStruct {
 		    IPAddress		    "codertarget.arduinobase.internal.getExternalModeMexArgs('Wifi')"
 		    Port		    "17725"
-		    Verbose		    [0.0]
+		    Verbose		    [0]
 		    }
 		    PropName		    "WiFi"
 		  }
@@ -879,8 +879,8 @@ Model {
 	PropName		"Components"
       }
       Name		      "Configuration"
-      CurrentDlgPage	      "Model Referencing"
-      ConfigPrmDlgPosition     [ 1044, 211, 2003, 979 ] 
+      CurrentDlgPage	      "Hardware Implementation"
+      ConfigPrmDlgPosition     [ 891, 211, 1850, 979 ] 
     }
     PropName		    "ConfigurationSets"
   }
@@ -1123,8 +1123,8 @@ Model {
     }
   }
   System {
-    Name		    "velo_pi_mbd_sl_2"
-    Location		    [986, 111, 1869, 801]
+    Name		    "velo_pi_mbd_sl_real"
+    Location		    [1058, 77, 1941, 767]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -1320,27 +1320,26 @@ Model {
       "ources','WiredSimulink',true,'DataLoggingSaveFormat','StructureWithTime','DataLoggingLimitDataPoints',true,'Data"
       "LoggingDecimation','1','DataLoggingDecimateData',true),extmgr.Configuration('Visuals','Time Domain',true,'Serial"
       "izedDisplays',{struct('MinYLimReal','0.5','MaxYLimReal','2','YLabelReal','','MinYLimMag','0','MaxYLimMag','10','"
-      "LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.68"
+      "LegendVisibility','Off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.68"
       "6274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623"
       "529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717"
       "647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<Signa"
-      "lLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',0,'LineNames',{{[]}},'ShowContent'"
-      ",true,'Placement',1),struct('MinYLimReal','0','MaxYLimReal','5','YLabelReal','','MinYLimMag','0','MaxYLimMag','1"
-      "0','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',["
-      "0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0"
-      ".623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0"
-      ".717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<S"
-      "ignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',0,'LineNames',{{[]}},'ShowCont"
-      "ent',true,'Placement',2)},'DisplayPropertyDefaults',struct('MinYLimReal','0.5','MaxYLimReal','2','YLabelReal',''"
-      ",'MinYLimMag','0','MaxYLimMag','10','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'Axe"
-      "sColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666"
-      "666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831"
-      "372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.074509803921568"
-      "6 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLine"
-      "s',0,'LineNames',{{[]}},'ShowContent',true,'Placement',1),'DisplayLayoutDimensions',[2 1],'TimeRangeSamples','10"
-      "','TimeRangeFrames','10'),extmgr.Configuration('Tools','Plot Navigation',true,'OnceAtStop',false),extmgr.Configu"
-      "ration('Tools','Measurements',true,'Version','2016a')),'Version','2016a','Location',[494 475 896 992],'VisibleAt"
-      "ModelOpen','on')"
+      "lLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',2,'LineNames',{{'Sum1','Moter'}},'"
+      "ShowContent',true,'Placement',1),struct('MinYLimReal','0','MaxYLimReal','5','YLabelReal','','MinYLimMag','0','Ma"
+      "xYLimMag','10','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'Axes"
+      "TickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.074509"
+      "8039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.074509"
+      "8039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],"
+      "'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',1,'LineNames',{{'S"
+      "um2'}},'ShowContent',true,'Placement',2)},'DisplayPropertyDefaults',struct('MinYLimReal','0.5','MaxYLimReal','2'"
+      ",'YLabelReal','','MinYLimMag','0','MaxYLimMag','10','AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686"
+      "274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0."
+      "411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.2745"
+      "09803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePrope"
+      "rtiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',0,'LineNames',{{[]}},'ShowContent',true,'Placement',1"
+      "),'DisplayLayoutDimensions',[2 1],'TimeRangeSamples','20','TimeRangeFrames','20'),extmgr.Configuration('Tools','"
+      "Plot Navigation',true,'OnceAtStop',false),extmgr.Configuration('Tools','Measurements',true,'Version','2016a')),'"
+      "Version','2016a','Location',[742 453 1140 964],'VisibleAtModelOpen','on')"
       NumInputPorts	      "2"
     }
     Block {
@@ -1499,7 +1498,6 @@ Model {
       }
       Branch {
 	ZOrder			19
-	Points			[114, 0]
 	DstBlock		"Mux"
 	DstPort			2
       }
