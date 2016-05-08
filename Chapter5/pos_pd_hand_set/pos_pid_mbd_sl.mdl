@@ -7,7 +7,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.184"
+    ComputedModelVersion    "1.185"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -41,7 +41,7 @@ Model {
 	DockPosition		"Left"
 	Width			[50]
 	Height			[50]
-	Filter			[8]
+	Filter			[9]
       }
       Object {
 	$PropName		"ExplorerBarInfo"
@@ -68,9 +68,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "morita"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sun May 08 17:13:13 2016"
-  RTWModifiedTimeStamp	  384628245
-  ModelVersionFormat	  "1.%<AutoIncrement:184>"
+  LastModifiedDate	  "Sun May 08 17:26:48 2016"
+  RTWModifiedTimeStamp	  384629108
+  ModelVersionFormat	  "1.%<AutoIncrement:185>"
   ConfigurationManager	  "none"
   SampleTimeColors	  on
   SampleTimeAnnotations	  off
@@ -878,7 +878,7 @@ Model {
 	PropName		"Components"
       }
       Name		      "Configuration"
-      CurrentDlgPage	      "Solver"
+      CurrentDlgPage	      "Hardware Implementation"
       ConfigPrmDlgPosition     [ 496, 195, 1424, 939 ] 
     }
     PropName		    "ConfigurationSets"
@@ -1932,7 +1932,7 @@ Model {
       "l>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',0,'LineNames',{{[]}},'ShowContent',true"
       ",'Placement',1),'DisplayLayoutDimensions',[2 1],'TimeRangeSamples','8','TimeRangeFrames','8'),extmgr.Configurati"
       "on('Tools','Plot Navigation',true,'OnceAtStop',false),extmgr.Configuration('Tools','Measurements',true,'Version'"
-      ",'2016a')),'Version','2016a','Location',[1090 204 1651 699],'VisibleAtModelOpen','on')"
+      ",'2016a')),'Version','2016a','Location',[1090 204 1651 699])"
       NumInputPorts	      "2"
     }
     Block {
