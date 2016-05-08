@@ -37,3 +37,12 @@ Externalモードでは`sim('velo_id_gain_sl');`コマンドが使えなく，`s
 - 参考
  - [Parameter Tuning and Signal Logging with Serial External Mode](http://jp.mathworks.com/help//supportpkg/texasinstrumentsc2000/examples/parameter-tuning-and-signal-logging-with-serial-external-mode.html)
  - [Tune Parameters and Monitor Data in Model Running on Target Hardware](http://jp.mathworks.com/help/supportpkg/legomindstormsev3/ug/tune-parameters-and-monitor-data-in-a-model-running-on-target-hardware.html)
+
+### ソルバーオプション
+「ツール」→「ターゲットハードウェアで実行」→「オプション」→「ソルバー」の設定
+- 実機のIOのみの場合
+ - タイプ：固定ステップ
+ - ソルバー：離散（連続状態なし）
+- Simulinkモデル内に伝達関数によるシミュレーションが入る場合
+ - タイプ：固定ステップ
+ - ソルバー：ode4(Runge-Kutta)
