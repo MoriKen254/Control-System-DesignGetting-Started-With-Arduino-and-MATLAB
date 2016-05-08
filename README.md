@@ -46,3 +46,7 @@ Externalモードでは`sim('velo_id_gain_sl');`コマンドが使えなく，`s
 - Simulinkモデル内に伝達関数によるシミュレーションが入る場合
  - タイプ：固定ステップ
  - ソルバー：ode4(Runge-Kutta)
+
+### Run On Target Hardware 内で，実機とシミュレーションの同時実行で失敗する．
+比例要素のみでは成功するが，積分要素を入れると失敗する．共存はできないらしい．
+仕方ないから，`hogehoge_sim.mdl`と`hogehoge_real.mdl`を作って，順番に実行して比較することにした．
